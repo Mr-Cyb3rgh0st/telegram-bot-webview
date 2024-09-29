@@ -66,8 +66,8 @@ class YourTelegramBot:
 
 if __name__ == "__main__":
     # Replace these with your actual API credentials
-    API_ID = 26347495  # Your API ID
-    API_HASH = "71d69dea319c912bf447064f7551c3e6"  # Your API Hash
+    API_ID = ""  # Your API ID
+    API_HASH = ""  # Your API Hash
 
     bot = YourTelegramBot(API_ID, API_HASH)
     
