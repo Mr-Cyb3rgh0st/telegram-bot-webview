@@ -1,65 +1,67 @@
 # Telegram Bot for Extracting WebView Data
 
-This is a Python-based Telegram bot that connects to a specific bot, requests a WebView, and extracts data from a URL. The bot uses the [Telethon](https://github.com/LonamiWebs/Telethon) library to interact with Telegram's API.
+This repository contains a Python-based Telegram bot that connects to a specific Telegram bot, requests a WebView, and extracts data from the response URL. The bot utilizes the [Pyrogram](https://docs.pyrogram.org/) library to interact with the Telegram API effectively.
 
 ## Features
 
-- Connects to the Telegram API using a bot token, API ID, and API hash.
-- Sends a WebView request to the bot `BlumCryptoBot`.
+- Connects to the Telegram API using API ID and API hash.
+- Sends a WebView request to the `BlumCryptoBot`.
 - Extracts `tgWebAppData` from the WebView URL.
-- Logs errors and handles user bans.
+- Implements robust error handling and logging for user bans and connection issues.
 
 ## Prerequisites
 
 To run this bot, you will need the following:
 
-- **Python 3.7+**
-- **Telethon** library
-- **Telegram API credentials**
-  - `API ID` and `API Hash`: Get these from [my.telegram.org](https://my.telegram.org).
-  - `Bot Token`: Create a bot via [BotFather](https://t.me/BotFather) on Telegram to get this.
+- **Python 3.7 or higher**
+- **Pyrogram** library
+- **Telegram API credentials**:
+  - **API ID** and **API Hash**: Obtain these from [my.telegram.org](https://my.telegram.org/).
+  - **Bot Token**: Create a bot via [BotFather](https://t.me/BotFather) on Telegram.
 
 ## Installation
+
+Follow these steps to set up the project:
 
 1. **Clone the repository** (or download the script):
 
     ```bash
-    git clone https://github.com/your-repo/telegram-bot-webview.git
+    git clone https://github.com/your-username/telegram-bot-webview.git
     cd telegram-bot-webview
     ```
 
 2. **Install the required dependencies**:
 
-    You can install the required dependencies by running:
+    You can install the necessary dependencies by running:
 
     ```bash
-    pip install telethon
+    pip install pyrogram
     ```
 
 3. **Configure the script**:
 
-   - Open the script file and replace the following placeholders with your Telegram API credentials:
+   - Open the script file (e.g., `telegram_bot.py`) and replace the placeholders with your Telegram API credentials:
    
      ```python
-     api_id = 'YOUR_API_ID'
-     api_hash = 'YOUR_API_HASH'
+     API_ID = 'YOUR_API_ID'
+     API_HASH = 'YOUR_API_HASH'
      ```
 
 ## Usage
 
 1. **Run the bot**:
 
-    After configuring the script with your API keys, run the bot using:
+    After configuring the script with your API keys, execute the bot using:
 
     ```bash
     python telegram_bot.py
     ```
 
-2. **Expected output**:
+2. **Expected Output**:
 
     If everything is set up correctly, the bot will extract the `tgWebAppData` from the WebView URL and print it in the terminal.
 
-    Example:
+    Example output:
     
     ```
     Extracted Data: <your-data-here>
@@ -69,17 +71,27 @@ To run this bot, you will need the following:
 
 ## Code Overview
 
-### Main Functions:
+### Main Functions
 
-- `get_tg_web_data(self)`: 
-    - Connects to Telegram using the credentials.
+- `get_tg_web_data(self)`:
+    - Connects to Telegram using the provided credentials.
     - Sends a WebView request to the `BlumCryptoBot`.
     - Extracts `tgWebAppData` from the URL and returns it.
 
-### Error Handling:
+### Error Handling
 
 - If the user is banned (`USER_DEACTIVATED_BAN`), the bot will disconnect and return an error message.
 - If the WebView URL format is incorrect, the bot will log an `IndexError` and return `None`.
+
+## Testing
+
+You can test the bot by sending commands to `BlumCryptoBot` or by modifying the script to interact with other Telegram bots.
+
+## Troubleshooting
+
+- **Connection Issues**: Ensure your API credentials are correct and your internet connection is stable.
+- **User Banned Error**: If you receive a `USER_DEACTIVATED_BAN` error, verify if your account has been banned from the bot.
+- **Invalid URL Error**: Ensure that the WebView URL you are trying to access is correctly formatted.
 
 ## License
 
@@ -87,4 +99,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgements
 
-- [Telethon](https://github.com/LonamiWebs/Telethon) - Telegram client API for Python
+- [Pyrogram](https://docs.pyrogram.org/) - Telegram client API for Python.
+- [Telegram](https://telegram.org/) - The platform that makes this bot possible.
